@@ -1,5 +1,9 @@
 #environnement virtuel
+
 env/
 Pipfile
 Pipfile.lock
+
+#vscode
+
 .vscode
