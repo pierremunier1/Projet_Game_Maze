@@ -1,3 +1,6 @@
+import constants
+
+
 class Labyrinth:
      """Classe définissant la structure du  Labyrinthe par:
     - sa largeur
@@ -25,4 +28,6 @@ def __init__(self):
                           "XXXXXXXXXXXXXXXX",]
                   
                                                                
+
+
 
