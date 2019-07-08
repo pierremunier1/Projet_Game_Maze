@@ -1,15 +1,19 @@
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
+level_1 = 
+
+[
+
+ "+-------------------+",
+ "|                   |",
+ "|                   |",
+ "|                   |",
+ "|                   |",
+ "|                   |",
+ "|                   |",
+ "|                   |",
+ "|                   |",              
+ "|                   |",
+ "|                   |",
+ "|                   |",
+ "+-------------------+",
+
+]
