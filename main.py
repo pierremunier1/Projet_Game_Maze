@@ -3,31 +3,34 @@ from position import Position
 from hero import Hero
 
 class Game:
-        
+
         def __init__(self):
 
-                self.labyrinth = Labyrinthe()
-                self.labyrinth.build("laby.txt")
-                self.hero = Hero(self.labyrinth)
-    
+                self.labyrinthe = Labyrinthe()
+                self.labyrinthe.build('laby.txt')
+                self.hero = Hero(self.labyrinthe)
+                
 
-
-
-
-
+        def choice(self):
+                
+                direction = input ('***choisir direction : ')              
+                if direction == "down":
+                        self.hero.move(direction)     
+                elif direction == "up":
+                        self.hero.move(direction)
+                elif direction == "left":
+                        self.hero.move(direction)
+                elif direction == "right":
+                        self.hero.move(direction)
+                                                
 def main():
+        game = Game()
 
-    
-    labyrinth = Labyrinthe()
-    labyrinth.build("laby.txt")
-    
-    
+        while  1<5 :
 
-    while 1 < 5: 
-        labyrinth.show()
-        labyrinth.move()
-    
-    
+                game.labyrinthe.show()
+                game.choice()
+             
 
 if __name__ == "__main__":
-    main()
+        main()

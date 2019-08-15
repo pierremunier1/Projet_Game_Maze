@@ -7,13 +7,16 @@ class Position:
         self.x = x
         self.y = y
         
-    def up(self):
 
+        
+    def up (self):
+    
         return Position(self.x, self.y -1)
        
 
     def down(self):
         
+    
         return Position(self.x, self.y +1)
     
     def left(self):
@@ -31,7 +34,7 @@ class Position:
         return "Position(x={},y={})".format(self.x,self.y)
         
     def __eq__(self,other):
-
+        
         return(self.x,self.y) == (other.x,other.y)
 
 

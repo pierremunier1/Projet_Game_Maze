@@ -1,4 +1,4 @@
-from labyrinthe import Labyrinthe
+
 from position import Position
 
 class Hero:
@@ -6,11 +6,25 @@ class Hero:
     def __init__(self,labyrinthe):
 
         self.labyrinthe = labyrinthe
-        self.player = self.labyrinthe.player
+    
+
+    def move(self,direction):
+
+        new_position = getattr(self.labyrinthe.hero,direction)()
+        if new_position in self.labyrinthe.passages:
+            self.labyrinthe.hero = new_position
+        else:
+            print('***position non valide***')
+            
+            
+            
+
 
     
         
+ 
+
         
-  
-    
+
+        
     
