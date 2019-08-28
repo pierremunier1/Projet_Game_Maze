@@ -5,6 +5,7 @@ class Hero:
 
     def __init__(self,labyrinthe):
 
+        self.inventory = 0
         self.labyrinthe = labyrinthe
     
 
@@ -16,7 +17,7 @@ class Hero:
         else:
             print('***position non valide***')
             
-            
+    
             
 
 

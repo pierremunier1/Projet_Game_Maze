@@ -39,6 +39,7 @@ class Labyrinthe:
             self.height = n_line + 1
         print()
 
+
         
         
 

@@ -1,5 +1,6 @@
 from labyrinthe import Labyrinthe
 from position import Position
+from random import sample
 from hero import Hero
 
 class Game:
@@ -10,26 +11,25 @@ class Game:
                 self.labyrinthe.build('laby.txt')
                 self.hero = Hero(self.labyrinthe)
                 
+                
 
         def choice(self):
                 
-                direction = input ('***choisir direction : ')              
-                if direction == "down":
-                        self.hero.move(direction)     
-                elif direction == "up":
-                        self.hero.move(direction)
-                elif direction == "left":
-                        self.hero.move(direction)
-                elif direction == "right":
-                        self.hero.move(direction)
-                                                
+                select = input ('***choisir direction : ')
+                direction = select       
+                if select in direction:
+                        self.hero.move(direction)    
+
+                                               
 def main():
+
         game = Game()
 
         while  1<5 :
 
                 game.labyrinthe.show()
                 game.choice()
+               
              
 
 if __name__ == "__main__":
