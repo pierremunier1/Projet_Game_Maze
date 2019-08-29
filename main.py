@@ -2,6 +2,7 @@ from labyrinthe import Labyrinthe
 from position import Position
 from random import sample
 from hero import Hero
+from items import Items
 
 class Game:
 
@@ -10,20 +11,31 @@ class Game:
                 self.labyrinthe = Labyrinthe()
                 self.labyrinthe.build('laby.txt')
                 self.hero = Hero(self.labyrinthe)
+                self.random_items = Items(self.labyrinthe)
                 
                 
 
         def choice(self):
                 
-                select = input ('***choisir direction : ')
-                direction = select       
-                if select in direction:
-                        self.hero.move(direction)    
+                direction = input ('***choisir direction : ')
+                select = ("up","down","left","right")
+                if direction in select:
+                        self.hero.move(direction)
+                
+                
+               
 
-                                               
+        
+
+        
+       
+
+
 def main():
 
         game = Game()
+        game.labyrinthe.random_position()
+     
 
         while  1<5 :
 

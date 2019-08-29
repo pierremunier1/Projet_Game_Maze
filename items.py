@@ -1,5 +1,6 @@
 from labyrinthe import Labyrinthe
 from random import sample
+from position import Position
 
 class Items:
 
@@ -10,7 +11,7 @@ class Items:
         self.labyrinthe = labyrinthe
 
 
-    def generate_items(self):
+    def random_position(self):
         
-        print(sample(self.labyrinthe.passages,k=3))
-       
+        print(sample(self.labyrinthe.passages, k=3))
+        self.labyrinthe.random_items = (sample(self.labyrinthe.passages, k=3))
