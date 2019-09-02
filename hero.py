@@ -10,32 +10,37 @@ class Hero:
 
     def move(self,direction):
 
+
         new_position = getattr(self.labyrinthe.hero,direction)()
         if new_position in self.labyrinthe.passages:
             self.labyrinthe.hero = new_position
         else:
-            print('***position non valide***')
+            print('***invalid position***')
 
     def catch_items(self):
 
-        
         if self.labyrinthe.hero in self.labyrinthe.ether:
             self.inventory.extend(self.labyrinthe.ether)
             self.labyrinthe.ether = []
+
         elif self.labyrinthe.hero in self.labyrinthe.tube:
             self.inventory.extend(self.labyrinthe.tube)
             self.labyrinthe.tube = []
+            
         elif self.labyrinthe.hero in self.labyrinthe.needle:
             self.inventory.extend(self.labyrinthe.needle)
             self.labyrinthe.needle = []
-        
+    
+
     def result_inventory(self):
 
         result = len(self.inventory)
-        print("compteur:",result)
-        if result == 3:
-            print("**victoire**")
-            
+        print("Items:",result)
+        if self.labyrinthe.hero == self.labyrinthe.guard:
+            if result == 3:
+                print("**You Win**")
+            elif result != 3:
+                print("**You Loose**")
 
 
             

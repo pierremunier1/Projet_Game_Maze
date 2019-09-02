@@ -18,7 +18,7 @@ class Game:
 
         def choice(self):
                 
-                direction = input ('***choisir direction : ')   
+                direction = input ('***choose direction : ')   
                 select = ("up","down","left","right")
                 if direction in select:
                         self.hero.move(direction)
@@ -27,6 +27,7 @@ class Game:
 def main():
 
         game = Game()
+        game.items.add_random_position()
         
         
 
