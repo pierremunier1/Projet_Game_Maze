@@ -1,5 +1,4 @@
 
-
 class Position:
 
     def __init__(self,x ,y):
@@ -7,16 +6,12 @@ class Position:
         self.x = x
         self.y = y
         
-
-        
     def up (self):
     
         return Position(self.x, self.y -1)
        
-
     def down(self):
         
-    
         return Position(self.x, self.y +1)
     
     def left(self):
