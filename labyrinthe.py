@@ -1,6 +1,6 @@
 from position import Position
 from random import sample
-
+from Items import Items
 
 
 class Labyrinthe:
@@ -15,7 +15,12 @@ class Labyrinthe:
         self.height = None
         self.passages = []
         self.mur = []
-        self.random_items = []
+        self.ether = []
+        self.tube = []
+        self.needle = []
+        
+        
+
 
     def build(self,filename):
         
@@ -32,10 +37,7 @@ class Labyrinthe:
                         self.end = position
                     elif c == "P":
                         self.passages.append(position)
-                        self.hero = position
-                    elif c == "*":
-                        self.passages.append(position)
-                        self.random_items.append(position)
+                        self.hero = position                       
                     elif c == ".":
                         self.passages.append(position)
                     elif c == "#":
@@ -46,12 +48,7 @@ class Labyrinthe:
             self.height = n_line + 1
         print()
 
-
-    def random_position(self):
-                
-                #print(sample(self.passages,k=1))
-                self.random_items = sample(self.passages,k=3)
-                #print(self.random_items)
+    
    
         
     def show(self):
@@ -62,8 +59,12 @@ class Labyrinthe:
                 position = Position(x, y)
                 if position == self.start:
                     print("S",end='')
-                elif position in self.random_items:
-                    print("*",end='')
+                elif position in self.ether:
+                    print("€",end='')
+                elif position in self.needle:
+                    print("N",end='')
+                elif position in self.tube:
+                    print("T",end='')
                 elif position == self.hero:
                     print("P",end='')
                 elif position == self.end:
@@ -75,6 +76,8 @@ class Labyrinthe:
             print()
 
         print('Hero',self.hero)
+        
+        
 
 
             

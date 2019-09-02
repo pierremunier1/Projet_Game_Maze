@@ -26,6 +26,7 @@ class Position:
     def right(self):
 
         return Position(self.x +1, self.y)
+
     
     def __str_(self):
         return str((self.x, self.y))
