@@ -20,15 +20,15 @@ class Hero:
     def catch_items(self):
 
         if self.labyrinthe.hero in self.labyrinthe.ether:
-            self.inventory.extend(self.labyrinthe.ether)
+            self.inventory.append(self.labyrinthe.ether)
             self.labyrinthe.ether = []
 
         elif self.labyrinthe.hero in self.labyrinthe.tube:
-            self.inventory.extend(self.labyrinthe.tube)
+            self.inventory.append(self.labyrinthe.tube)
             self.labyrinthe.tube = []
             
         elif self.labyrinthe.hero in self.labyrinthe.needle:
-            self.inventory.extend(self.labyrinthe.needle)
+            self.inventory.append(self.labyrinthe.needle)
             self.labyrinthe.needle = []
     
 

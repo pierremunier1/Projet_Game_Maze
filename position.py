@@ -3,7 +3,7 @@ class Position:
 
     def __init__(self,x ,y):
 
-        self.x = x
+        self.x = x 
         self.y = y
         
     def up (self):
@@ -22,7 +22,6 @@ class Position:
 
         return Position(self.x +1, self.y)
 
-    
     def __str_(self):
         return str((self.x, self.y))
     
