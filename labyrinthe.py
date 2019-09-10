@@ -3,7 +3,6 @@ from random import sample
 from Items import Items
 from display_gui import Display
 import constants
-import pygame
 import os
 
 
@@ -18,7 +17,6 @@ class Labyrinthe:
         self.width = None
         self.height = None
         self.guard = None
-        self.wall = None
         self.passages = []
         self.mur = []
         self.ether = []
@@ -26,11 +24,7 @@ class Labyrinthe:
         self.needle = []
         self.items = []
         
-        #Display Init 
 
-        self.window = pygame.display.set_mode((constants.HEIGHT, constants.WIDTH))
-        self.mcgyver = None
-        self.wall = None
         
     def build(self,filename):
         
@@ -64,8 +58,7 @@ class Labyrinthe:
 
     def show(self):
         
-        self
-        
+    
         for y in range(self.height):
             for x in range(self.width):
                 position = Position(x, y)
@@ -78,7 +71,6 @@ class Labyrinthe:
                 elif position in self.tube:
                     print("T",end='')
                 elif position == self.hero:
-                    self.window.blit(self.mcgyver,(position.x,position.y))
                     print("P",end='')
                 elif position == self.guard:
                     print("G",end='')
@@ -87,10 +79,9 @@ class Labyrinthe:
                 elif position in self.passages:
                     print(".",end='')
                 elif position in self.mur:
-                    self.window.blit(self.wall,(position.x,position.y,30,30))
                     print("#",end='')
             print()
-            pygame.display.update()
+            
 
             
         
