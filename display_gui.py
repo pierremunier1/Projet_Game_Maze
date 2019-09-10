@@ -19,14 +19,15 @@ class Display:
         self.window.blit(self.background,(0,0))
         self.wall = pygame.image.load(constants.WALL)
         self.mcgyver = pygame.image.load(constants.MCGYVER)
-        self.ether = pygame.image.load(constants.ETHER)
-        self.tube = pygame.image.load(constants.TUBE)
-        self.needle = pygame.image.load(constants.NEEDLE)
+        self.ether = pygame.image.load(constants.ETHER).convert()
+        self.tube = pygame.image.load(constants.TUBE).convert()
+        self.needle = pygame.image.load(constants.NEEDLE).convert()
 
         
     
     def update_display(self):
 
+        self.window.blit(self.background,(0,0))
         return pygame.display.update()
 
     def show_display(self):

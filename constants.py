@@ -4,8 +4,8 @@ import pygame
 
 BASE_DIR = Path(__file__).resolve().parent
 
-HEIGHT = 420
-WIDTH = 490
+HEIGHT = 480
+WIDTH = 480
 
 sprite_size = 30
 

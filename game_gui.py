@@ -33,12 +33,16 @@ class Game:
                         elif event.type == pygame.KEYDOWN:
                                 if event.key == pygame.K_RIGHT:
                                         self.hero.move("right")
+                                        self.display_guy.update_display()
                                 elif event.key == pygame.K_LEFT:
                                         self.hero.move("left")
+                                        self.display_guy.update_display()
                                 elif event.key == pygame.K_DOWN:
                                         self.hero.move("down")
+                                        self.display_guy.update_display()
                                 elif event.key == pygame.K_UP:
                                         self.hero.move("up")
+                                        self.display_guy.update_display()
                 
        
         
@@ -51,7 +55,6 @@ def main():
         
         while  1<5 :
 
-                game.display_guy.update_display()
                 game.choice()
                 game.display_guy.show_display()
                 game.hero.catch_items()

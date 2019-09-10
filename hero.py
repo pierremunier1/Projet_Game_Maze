@@ -15,7 +15,6 @@ class Hero:
         new_position = getattr(self.labyrinthe.hero,direction)()
         if new_position in self.labyrinthe.passages:
             self.labyrinthe.hero = new_position
-            pygame.display.flip()
         else:
             print('***invalid position***')
         
