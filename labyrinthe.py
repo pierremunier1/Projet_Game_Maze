@@ -23,6 +23,8 @@ class Labyrinthe:
         self.tube = []
         self.needle = []
         self.items = []
+        self.inventory = []
+        self.inventory_gui = []
         
 
         
@@ -49,6 +51,9 @@ class Labyrinthe:
                     elif c == "G":
                         self.guard = position
                         self.passages.append(position)
+                    elif c == "I":
+                        self.inventory_gui.append(position)
+                        
                     
                     
             self.width = n_column + 1
@@ -82,7 +87,6 @@ class Labyrinthe:
                     print("#",end='')
             print()
             
-
             
         
     

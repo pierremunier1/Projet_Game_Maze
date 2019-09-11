@@ -37,7 +37,11 @@ class Hero:
 
     def result_inventory(self):
 
+        if self.labyrinthe.needle in self.inventory:
+            self.labyrinthe.inventory_gui.append(self.labyrinthe.needle)
+            self.window.blit(self.needle)
         result = len(self.inventory)
+        
         print("Items:",result)
         if self.labyrinthe.hero == self.labyrinthe.guard:
             if result == 3:

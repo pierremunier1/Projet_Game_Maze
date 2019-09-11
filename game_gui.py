@@ -48,16 +48,27 @@ class Game:
         
 def main():
 
+        
+
         game = Game()
         game.items.add_random_position()
         game.display_guy.init_display() 
-        game.hero.result_inventory()
-        
+       
+
+
+
+
         while  1<5 :
 
+                
                 game.choice()
                 game.display_guy.show_display()
+                game.display_guy.result_inventory()
                 game.hero.catch_items()
+                
+            
+               
+               
                 
 if __name__ == "__main__":
         main()
