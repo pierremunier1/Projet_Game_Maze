@@ -25,6 +25,8 @@ class Labyrinthe:
         self.items = []
         self.inventory = []
         self.inventory_gui = []
+        self.inventory_ether = []
+        
         
 
         
@@ -49,10 +51,11 @@ class Labyrinthe:
                     elif c == "#":
                         self.mur.append(position)
                     elif c == "G":
-                        self.guard = position
-                        self.passages.append(position)
+                        self.guardian = position
+                        self.passages.append(position) 
                     elif c == "I":
                         self.inventory_gui.append(position)
+                   
                         
                     
                     

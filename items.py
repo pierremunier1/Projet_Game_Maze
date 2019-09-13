@@ -1,3 +1,4 @@
+
 from position import Position
 from random import sample
 
