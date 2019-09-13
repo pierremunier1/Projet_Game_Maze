@@ -1,6 +1,6 @@
 from position import Position
 from random import sample
-from Items import Items
+from items import Items
 from display_gui import Display
 import constants
 import os

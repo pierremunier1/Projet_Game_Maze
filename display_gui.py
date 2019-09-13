@@ -19,6 +19,8 @@ class Display:
         self.window = pygame.display.set_mode((constants.HEIGHT, constants.WIDTH)) 
         
         self.home = pygame.image.load(constants.HOME)
+        self.black_bg = pygame.Surface((constants.WIDTH,constants.HEIGHT))
+        self.black_bg.fill((0,0,0))
         self.background = pygame.image.load(constants.BACKGROUND)
         self.window.blit(self.background,(0,0))
 
@@ -32,9 +34,11 @@ class Display:
         
 
     def update_display(self):
+        
 
+        self.window.blit(self.black_bg,(0,0))
         self.window.blit(self.background,(0,0))
-        return pygame.display.flip()
+        
 
     def show_display(self):
         
@@ -56,16 +60,17 @@ class Display:
                     self.window.blit(self.tube,(x*constants.sprite_size,y*constants.sprite_size))
 
 
-        pygame.display.flip()
+        
                     
 
     def catch_items_gui(self):
 
        
-        myfont = pygame.font.SysFont('Comic Sans MS', 20)
+        myfont = pygame.font.SysFont('Times', 32)
         self.result = len(self.labyrinthe.inventory)
-        textsurface = myfont.render(("Items:  %s" % self.result), True, (255, 255, 255))
-        self.window.blit(textsurface,(110,445))
+        textsurface = myfont.render(("Items:  %s" % self.result), True, (255, 255, 255)) #a refaire
+        self.window.blit(textsurface,(110,450))
+
         
         
 
@@ -84,7 +89,6 @@ class Display:
             self.window.blit(self.needle,(constants.POSITION_ITEMS.pop(0)))
             self.labyrinthe.needle = []
             
-        pygame.display.update()
 
 
 

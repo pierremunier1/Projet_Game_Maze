@@ -2,7 +2,7 @@ from labyrinthe import Labyrinthe
 from position import Position
 from random import sample
 from hero import Hero
-from Items import Items
+from items import Items
 from display_gui import Display
 import constants
 import pygame
@@ -33,16 +33,16 @@ class Game:
                         elif event.type == pygame.KEYDOWN:
                                 if event.key == pygame.K_RIGHT:
                                         self.hero.move("right")
-                                        self.display_gui.update_display()
+                                        
                                 elif event.key == pygame.K_LEFT:
                                         self.hero.move("left")
-                                        self.display_gui.update_display()
+                                        
                                 elif event.key == pygame.K_DOWN:
                                         self.hero.move("down")
-                                        self.display_gui.update_display()
+                                        
                                 elif event.key == pygame.K_UP:
                                         self.hero.move("up")
-                                        self.display_gui.update_display()
+                                self.display_gui.update_display()
                 
        
         
@@ -58,9 +58,11 @@ def main():
         while  1<5:
 
                 
-                game.choice() 
+                game.choice()
+                game.display_gui.update_display()
                 game.display_gui.show_display()
                 game.display_gui.catch_items_gui()
+                pygame.display.flip()
                 
             
                
