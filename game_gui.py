@@ -20,8 +20,6 @@ class Game:
             self.display_gui = Display(self.labyrinthe)
             
 
-
-
         def choice(self):
                         
                 
@@ -42,13 +40,12 @@ class Game:
                                         
                                 elif event.key == pygame.K_UP:
                                         self.hero.move("up")
+
                                 self.display_gui.update_display()
-                
-       
+                       
         
 def main():
-
-        
+  
 
         game = Game()
         game.items.add_random_position()
@@ -64,9 +61,6 @@ def main():
                 game.display_gui.catch_items_gui()
                 pygame.display.flip()
                 
-            
-               
-               
-                
+                            
 if __name__ == "__main__":
         main()

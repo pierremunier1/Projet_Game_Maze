@@ -1,9 +1,6 @@
 from position import Position
-from random import sample
 from items import Items
-from display_gui import Display
 import constants
-import os
 
 
 class Labyrinthe:
@@ -13,7 +10,7 @@ class Labyrinthe:
        
         self.start = None
         self.end = None
-        self.hero = Position
+        self.hero = None
         self.width = None
         self.height = None
         self.guard = None
@@ -24,11 +21,7 @@ class Labyrinthe:
         self.needle = []
         self.items = []
         self.inventory = []
-        self.inventory_gui = []
-        self.inventory_ether = []
-        
-        
-
+    
         
     def build(self,filename):
         
@@ -53,12 +46,7 @@ class Labyrinthe:
                     elif c == "G":
                         self.guardian = position
                         self.passages.append(position) 
-                    elif c == "I":
-                        self.inventory_gui.append(position)
-                   
-                        
-                    
-                    
+         
             self.width = n_column + 1
             self.height = n_line + 1
 
@@ -88,6 +76,7 @@ class Labyrinthe:
                     print(".",end='')
                 elif position in self.mur:
                     print("#",end='')
+
             print()
             
             

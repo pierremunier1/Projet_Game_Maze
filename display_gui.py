@@ -7,25 +7,18 @@ class Display:
     def __init__(self,labyrinthe):
 
         self.labyrinthe = labyrinthe
-        self._running = True
     
     def init_display(self):
         
         pygame.init()
         pygame.font.init()
-        pygame.time.Clock().tick(40)
-        pygame.display.set_caption('MacGyver Escape Game')
+        pygame.display.set_caption(constants.WINDOW_TITLE)
        
         self.window = pygame.display.set_mode((constants.HEIGHT, constants.WIDTH)) 
-        
-        self.home = pygame.image.load(constants.HOME)
         self.black_bg = pygame.Surface((constants.WIDTH,constants.HEIGHT))
-        self.black_bg.fill((0,0,0))
+        self.black_bg.fill((constants.BG_COLOR))
         self.background = pygame.image.load(constants.BACKGROUND)
-        self.window.blit(self.background,(0,0))
-
         self.wall = pygame.image.load(constants.WALL)
-        self.inv = pygame.image.load(constants.INV)
         self.mcgyver = pygame.image.load(constants.MCGYVER).convert_alpha()
         self.guardian = pygame.image.load(constants.GUARDIAN).convert_alpha()
         self.ether = pygame.image.load(constants.ETHER).convert_alpha()
@@ -35,9 +28,10 @@ class Display:
 
     def update_display(self):
         
-
-        self.window.blit(self.black_bg,(0,0))
-        self.window.blit(self.background,(0,0))
+       
+        self.window.blit(self.black_bg,(constants.BG_COLOR_POSITION))
+        self.window.blit(self.background,(constants.BG_POSITION))
+        
         
 
     def show_display(self):
@@ -47,33 +41,27 @@ class Display:
             for x in range(self.labyrinthe.width):
                 position = Position(x, y)
                 if position in self.labyrinthe.mur:
-                    self.window.blit(self.wall,(x*constants.sprite_size,y*constants.sprite_size))
+                    self.window.blit(self.wall,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
                 elif position == self.labyrinthe.hero:
-                    self.window.blit(self.mcgyver,(x*constants.sprite_size,y*constants.sprite_size))
+                    self.window.blit(self.mcgyver,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
                 elif position == self.labyrinthe.guardian:
-                    self.window.blit(self.guardian,(x*constants.sprite_size,y*constants.sprite_size))
+                    self.window.blit(self.guardian,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
                 elif position in self.labyrinthe.ether:
-                    self.window.blit(self.ether,(x*constants.sprite_size,y*constants.sprite_size))
+                    self.window.blit(self.ether,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
                 elif position in self.labyrinthe.needle:
-                    self.window.blit(self.needle,(x*constants.sprite_size,y*constants.sprite_size))
+                    self.window.blit(self.needle,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
                 elif position in self.labyrinthe.tube:
-                    self.window.blit(self.tube,(x*constants.sprite_size,y*constants.sprite_size))
+                    self.window.blit(self.tube,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
 
-
-        
-                    
 
     def catch_items_gui(self):
 
        
-        myfont = pygame.font.SysFont('Times', 32)
+        myfont = pygame.font.SysFont(constants.FONT_POLICE, constants.FONT_SIZE)
         self.result = len(self.labyrinthe.inventory)
-        textsurface = myfont.render(("Items:  %s" % self.result), True, (255, 255, 255)) #a refaire
-        self.window.blit(textsurface,(110,450))
-
+        textsurface = myfont.render(("Items:  %s" % self.result), True, (constants.FONT_COLOR)) #a refaire
+        self.window.blit(textsurface,(constants.FONT_POSITION))
         
-        
-
         if self.labyrinthe.hero in self.labyrinthe.ether:
             self.labyrinthe.inventory.append(self.labyrinthe.ether)
             self.window.blit(self.ether,(constants.POSITION_ITEMS.pop(0)))

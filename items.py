@@ -1,6 +1,7 @@
 
 from position import Position
 from random import sample
+import constants
 
 class Items:
 
@@ -11,7 +12,7 @@ class Items:
         
     def random(self):
 
-        return sample(self.labyrinthe.passages, k=3)
+        return sample(self.labyrinthe.passages, constants.RANDOMS_ITEMS)
         
 
     def add_random_position(self):
