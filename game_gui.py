@@ -8,8 +8,8 @@ import constants
 import pygame
 
 
-
 class Game:
+ 
  
         def __init__(self):
 
@@ -31,16 +31,12 @@ class Game:
                         elif event.type == pygame.KEYDOWN:
                                 if event.key == pygame.K_RIGHT:
                                         self.hero.move("right")
-                                        
                                 elif event.key == pygame.K_LEFT:
                                         self.hero.move("left")
-                                        
                                 elif event.key == pygame.K_DOWN:
                                         self.hero.move("down")
-                                        
                                 elif event.key == pygame.K_UP:
                                         self.hero.move("up")
-
                                 self.display_gui.update_display()
                        
         

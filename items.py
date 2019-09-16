@@ -1,4 +1,3 @@
-
 from position import Position
 from random import sample
 import constants

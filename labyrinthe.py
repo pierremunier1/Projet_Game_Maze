@@ -13,7 +13,7 @@ class Labyrinthe:
         self.hero = None
         self.width = None
         self.height = None
-        self.guard = None
+        self.guardian = None
         self.passages = []
         self.mur = []
         self.ether = []
@@ -34,7 +34,6 @@ class Labyrinthe:
                         self.passages.append(position)
                         self.start = position
                     elif c == "E":
-                        self.passages.append(position)
                         self.end = position
                     elif c == "P":
                         self.passages.append(position)
@@ -68,7 +67,7 @@ class Labyrinthe:
                     print("T",end='')
                 elif position == self.hero:
                     print("P",end='')
-                elif position == self.guard:
+                elif position == self.guardian:
                     print("G",end='')
                 elif position == self.end:
                     print("E",end='')

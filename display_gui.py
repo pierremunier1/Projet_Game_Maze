@@ -13,7 +13,12 @@ class Display:
         pygame.init()
         pygame.font.init()
         pygame.display.set_caption(constants.WINDOW_TITLE)
-       
+        
+        pygame.mixer.music.load(constants.INTRO)
+        pygame.mixer.music.play()
+        icon = pygame.image.load(constants.MCGYVER)
+        pygame.display.set_icon(icon)
+
         self.window = pygame.display.set_mode((constants.HEIGHT, constants.WIDTH)) 
         self.black_bg = pygame.Surface((constants.WIDTH,constants.HEIGHT))
         self.black_bg.fill((constants.BG_COLOR))
@@ -21,6 +26,7 @@ class Display:
         self.wall = pygame.image.load(constants.WALL)
         self.mcgyver = pygame.image.load(constants.MCGYVER).convert_alpha()
         self.guardian = pygame.image.load(constants.GUARDIAN).convert_alpha()
+        self.end = pygame.image.load(constants.END).convert_alpha()
         self.ether = pygame.image.load(constants.ETHER).convert_alpha()
         self.tube = pygame.image.load(constants.TUBE).convert_alpha()
         self.needle = pygame.image.load(constants.NEEDLE).convert_alpha()
@@ -33,7 +39,6 @@ class Display:
         self.window.blit(self.background,(constants.BG_POSITION))
         
         
-
     def show_display(self):
         
 
@@ -46,12 +51,15 @@ class Display:
                     self.window.blit(self.mcgyver,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
                 elif position == self.labyrinthe.guardian:
                     self.window.blit(self.guardian,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
+                elif position == self.labyrinthe.end:
+                    self.window.blit(self.end,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))   
                 elif position in self.labyrinthe.ether:
                     self.window.blit(self.ether,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
                 elif position in self.labyrinthe.needle:
                     self.window.blit(self.needle,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
                 elif position in self.labyrinthe.tube:
                     self.window.blit(self.tube,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
+                
 
 
     def catch_items_gui(self):
@@ -59,8 +67,9 @@ class Display:
        
         myfont = pygame.font.SysFont(constants.FONT_POLICE, constants.FONT_SIZE)
         self.result = len(self.labyrinthe.inventory)
-        textsurface = myfont.render(("Items:  %s" % self.result), True, (constants.FONT_COLOR)) #a refaire
-        self.window.blit(textsurface,(constants.FONT_POSITION))
+        self.textsurface = myfont.render(("Items:  %s" % self.result), True, (constants.FONT_COLOR)) #a refaire
+        self.window.blit(self.textsurface,(constants.FONT_POSITION))
+       
         
         if self.labyrinthe.hero in self.labyrinthe.ether:
             self.labyrinthe.inventory.append(self.labyrinthe.ether)
@@ -77,11 +86,18 @@ class Display:
             self.window.blit(self.needle,(constants.POSITION_ITEMS.pop(0)))
             self.labyrinthe.needle = []
             
+        elif self.labyrinthe.hero == self.labyrinthe.guardian:
 
-
-
-
-
-                    
-      
- 
+            if self.result == constants.RESULT:
+                self.win = myfont.render((constants.WIN), True, (constants.FONT_COLOR))
+                self.window.blit(self.win,(constants.FONT_RESULT_POSITION))
+                self.win
+                self.labyrinthe.passages.append(self.labyrinthe.end)
+            
+                
+            else:
+                self.loose = myfont.render((constants.LOOSE), True, (constants.FONT_COLOR))
+                self.window.blit(self.loose,(constants.FONT_RESULT_POSITION))
+                self.loose
+               
+              
