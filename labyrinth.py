@@ -3,7 +3,7 @@ from items import Items
 import constants
 
 
-class Labyrinthe:
+class Maze:
 
     """Class for building and showing the maze"""
 

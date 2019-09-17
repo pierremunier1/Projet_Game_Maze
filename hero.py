@@ -5,19 +5,19 @@ class Hero:
 
     """Class of the MacGyver"""
 
-    def __init__(self,labyrinthe):
+    def __init__(self,labyrinth):
 
-        self.labyrinthe = labyrinthe
-        self.labyrinthe.inventory = []
+        self.labyrinth = labyrinth
+        self.labyrinth.inventory = []
         
 
     def move(self,direction):
 
         """Check if the new position is on free space in the maze and move McGyver on new position"""
 
-        new_position = getattr(self.labyrinthe.hero,direction)()
-        if new_position in self.labyrinthe.free:
-            self.labyrinthe.hero = new_position
+        new_position = getattr(self.labyrinth.hero,direction)()
+        if new_position in self.labyrinth.free:
+            self.labyrinth.hero = new_position
         else:
             print('***invalid position***')
         
@@ -27,27 +27,27 @@ class Hero:
 
         """Permit at MGGyver to take every items into the maze"""
 
-        if self.labyrinthe.hero in self.labyrinthe.ether:
-            self.labyrinthe.inventory.append(self.labyrinthe.ether)
-            self.labyrinthe.ether = []
+        if self.labyrinth.hero in self.labyrinth.ether:
+            self.labyrinth.inventory.append(self.labyrinth.ether)
+            self.labyrinth.ether = []
     
-        elif self.labyrinthe.hero in self.labyrinthe.tube:
-            self.labyrinthe.inventory.append(self.labyrinthe.tube)
-            self.labyrinthe.tube = []
+        elif self.labyrinth.hero in self.labyrinth.tube:
+            self.labyrinth.inventory.append(self.labyrinth.tube)
+            self.labyrinth.tube = []
             
-        elif self.labyrinthe.hero in self.labyrinthe.needle:
-            self.labyrinthe.inventory.append(self.labyrinthe.needle)
-            self.labyrinthe.needle = []
+        elif self.labyrinth.hero in self.labyrinth.needle:
+            self.labyrinth.inventory.append(self.labyrinth.needle)
+            self.labyrinth.needle = []
     
     
     def result_inventory(self):
 
         """Count the items and check on the guardian position if McGyver can escape the maze"""
 
-        result = len(self.labyrinthe.inventory)
+        result = len(self.labyrinth.inventory)
     
         print("Items:",result)
-        if self.labyrinthe.hero == self.labyrinthe.guard:
+        if self.labyrinth.hero == self.labyrinth.guardian:
             if result == 3:
                 print("**You Win**")
             elif result != 3:

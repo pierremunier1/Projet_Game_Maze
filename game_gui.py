@@ -1,4 +1,4 @@
-from labyrinthe import Labyrinthe
+from labyrinth import Maze
 from position import Position
 from random import sample
 from hero import Hero
@@ -15,11 +15,11 @@ class Game:
 
             """initializing all class instances from another python files"""    
 
-            self.labyrinthe = Labyrinthe()
-            self.labyrinthe.build('laby.txt')
-            self.hero = Hero(self.labyrinthe)
-            self.items = Items(self.labyrinthe)
-            self.display_gui = Display(self.labyrinthe)
+            self.labyrinth = Maze()
+            self.labyrinth.build('laby.txt')
+            self.hero = Hero(self.labyrinth)
+            self.items = Items(self.labyrinth)
+            self.display_gui = Display(self.labyrinth)
             
 
         def choice(self):

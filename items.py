@@ -6,25 +6,25 @@ class Items:
 
     """Class of the Items"""
 
-    def __init__(self,labyrinthe):
+    def __init__(self,labyrinth):
 
-        self.labyrinthe = labyrinthe
-        self.labyrinthe.items = self.random()
+        self.labyrinth = labyrinth
+        self.labyrinth.items = self.random()
         
     def random(self):
 
         """Method check random position items into the free position located in self.labyrinthe.free"""
 
-        return sample(self.labyrinthe.free, constants.RANDOMS_ITEMS)
+        return sample(self.labyrinth.free, constants.RANDOMS_ITEMS)
         
 
     def add_random_position(self):
 
         """Method add ramdom position for every items"""
 
-        self.labyrinthe.ether.append(self.labyrinthe.items[0])
-        self.labyrinthe.tube.append(self.labyrinthe.items[1])
-        self.labyrinthe.needle.append(self.labyrinthe.items[2])
+        self.labyrinth.ether.append(self.labyrinth.items[0])
+        self.labyrinth.tube.append(self.labyrinth.items[1])
+        self.labyrinth.needle.append(self.labyrinth.items[2])
         
 
 

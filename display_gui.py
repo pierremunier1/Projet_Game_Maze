@@ -4,9 +4,9 @@ from position import Position
 
 class Display:
 
-    def __init__(self,labyrinthe):
+    def __init__(self,labyrinth):
 
-        self.labyrinthe = labyrinthe
+        self.labyrinth = labyrinth
     
     def init_display(self):
         
@@ -53,22 +53,22 @@ class Display:
         
         """Method showing the maze at the screen and all character and items"""
 
-        for y in range(self.labyrinthe.height):
-            for x in range(self.labyrinthe.width):
+        for y in range(self.labyrinth.height):
+            for x in range(self.labyrinth.width):
                 position = Position(x, y)
-                if position in self.labyrinthe.wall:
+                if position in self.labyrinth.wall:
                     self.window.blit(self.wall,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
-                elif position == self.labyrinthe.hero:
+                elif position == self.labyrinth.hero:
                     self.window.blit(self.mcgyver,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
-                elif position == self.labyrinthe.guardian:
+                elif position == self.labyrinth.guardian:
                     self.window.blit(self.guardian,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
-                elif position == self.labyrinthe.end:
+                elif position == self.labyrinth.end:
                     self.window.blit(self.end,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))   
-                elif position in self.labyrinthe.ether:
+                elif position in self.labyrinth.ether:
                     self.window.blit(self.ether,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
-                elif position in self.labyrinthe.needle:
+                elif position in self.labyrinth.needle:
                     self.window.blit(self.needle,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
-                elif position in self.labyrinthe.tube:
+                elif position in self.labyrinth.tube:
                     self.window.blit(self.tube,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
                 
 
@@ -78,40 +78,40 @@ class Display:
         """Method that allows MacGyver to take the objects in the maze"""
         
         font = pygame.font.SysFont(constants.FONT_POLICE, constants.FONT_SIZE , bold=1)
-        self.result = len(self.labyrinthe.inventory)
+        self.result = len(self.labyrinth.inventory)
         self.text = font.render("items: " + str(self.result), 1, (constants.FONT_COLOR)) 
         self.window.blit(self.text,(constants.FONT_POSITION))
        
         
-        if self.labyrinthe.hero in self.labyrinthe.ether:
-            self.labyrinthe.inventory.append(self.labyrinthe.ether)
+        if self.labyrinth.hero in self.labyrinth.ether:
+            self.labyrinth.inventory.append(self.labyrinth.ether)
             self.window.blit(self.ether,(constants.POSITION_ITEMS.pop(0)))
-            self.labyrinthe.ether = []
+            self.labyrinth.ether = []
             
-        elif self.labyrinthe.hero in self.labyrinthe.tube:
-            self.labyrinthe.inventory.append(self.labyrinthe.tube)
+        elif self.labyrinth.hero in self.labyrinth.tube:
+            self.labyrinth.inventory.append(self.labyrinth.tube)
             self.window.blit(self.tube,(constants.POSITION_ITEMS.pop(0)))
-            self.labyrinthe.tube = []
+            self.labyrinth.tube = []
             
-        elif self.labyrinthe.hero in self.labyrinthe.needle:
-            self.labyrinthe.inventory.append(self.labyrinthe.needle)
+        elif self.labyrinth.hero in self.labyrinth.needle:
+            self.labyrinth.inventory.append(self.labyrinth.needle)
             self.window.blit(self.needle,(constants.POSITION_ITEMS.pop(0)))
-            self.labyrinthe.needle = []
+            self.labyrinth.needle = []
             
-        elif self.labyrinthe.hero == self.labyrinthe.guardian:
+        elif self.labyrinth.hero == self.labyrinth.guardian:
 
             if self.result == constants.RESULT:
                 self.win = font.render((constants.WIN),1,(constants.FONT_COLOR))
                 self.window.blit(self.win,(constants.FONT_RESULT_POSITION))
                 self.win
-                self.labyrinthe.free.append(self.labyrinthe.end)    
+                self.labyrinth.free.append(self.labyrinth.end)    
             
             else:
                 self.loose = font.render((constants.LOOSE),1,(constants.FONT_COLOR))
                 self.mcgyver = self.mcgyver_dead
                 self.window.blit(self.loose,(constants.FONT_RESULT_POSITION))
                 self.loose
-                self.labyrinthe.wall.pop()
+                self.labyrinth.wall.pop()
                 
              
               
