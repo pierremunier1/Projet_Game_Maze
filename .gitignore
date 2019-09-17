@@ -2,4 +2,4 @@ env/
 .vscode/
 __pycache__/
 Pipfile
-main.py
+.main.py
