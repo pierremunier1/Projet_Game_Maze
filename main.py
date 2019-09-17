@@ -1,8 +1,8 @@
-from labyrinthe import Labyrinthe
+from labyrinth import Maze
 from position import Position
 from random import sample
 from hero import Hero
-from Items import Items
+from items import Items
 
 
 
@@ -11,15 +11,19 @@ class Game:
  
         def __init__(self):
 
-                self.labyrinthe = Labyrinthe()
-                self.labyrinthe.build('laby.txt')
-                self.hero = Hero(self.labyrinthe)
-                self.items = Items(self.labyrinthe)
+                """initializing all class instances from another python files"""  
+
+                self.labyrinth = Maze()
+                self.labyrinth.build('laby.txt')
+                self.hero = Hero(self.labyrinth)
+                self.items = Items(self.labyrinth)
                
               
                 
 
         def choice(self):
+
+                """user ability to choice direction into the maze with directionnaly key"""
                 
                 direction = input ('***choose direction : ')   
                 select = ("up","down","left","right")
@@ -37,7 +41,7 @@ def main():
 
         while  1<5 :
 
-                game.labyrinthe.show()
+                game.labyrinth.show()
                 game.choice()
                 game.hero.catch_items()
                 game.hero.result_inventory()
