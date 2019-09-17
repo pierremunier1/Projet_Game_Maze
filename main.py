@@ -23,7 +23,7 @@ class Game:
 
         def choice(self):
 
-                """user ability to choice direction into the maze with directionnaly key"""
+                """user ability to choice direction into the maze with directionnaly key""" 
                 
                 direction = input ('***choose direction : ')   
                 select = ("up","down","left","right")
