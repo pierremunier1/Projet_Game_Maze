@@ -11,7 +11,7 @@ class Game:
  
         def __init__(self):
 
-                self.labyrinth = Labyrinth()
+                self.labyrinth = Maze()
                 self.labyrinth.build('laby.txt')
                 self.hero = Hero(self.labyrinth)
                 self.items = Items(self.labyrinth)
