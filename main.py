@@ -1,4 +1,4 @@
-from labyrinthe import Labyrinthe
+from labyrinth import Maze
 from position import Position
 from random import sample
 from hero import Hero
@@ -11,10 +11,10 @@ class Game:
  
         def __init__(self):
 
-                self.labyrinthe = Labyrinthe()
-                self.labyrinthe.build('laby.txt')
-                self.hero = Hero(self.labyrinthe)
-                self.items = Items(self.labyrinthe)
+                self.labyrinth = Labyrinthe()
+                self.labyrinth.build('laby.txt')
+                self.hero = Hero(self.labyrinth)
+                self.items = Items(self.labyrinth)
                
               
                 
@@ -37,7 +37,7 @@ def main():
 
         while  1<5 :
 
-                game.labyrinthe.show()
+                game.labyrinth.show()
                 game.choice()
                 game.hero.catch_items()
                 game.hero.result_inventory()
