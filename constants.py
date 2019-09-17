@@ -1,4 +1,3 @@
-"""Game constants"""
 from pathlib import Path
 import pygame
 
@@ -9,8 +8,9 @@ BASE_DIR = Path(__file__).resolve().parent
 "==PLAYER=="
 
 MCGYVER = str(BASE_DIR/'pictures'/'MacGyver.png')
+MCGYVER_DEAD = str(BASE_DIR/'pictures'/'MacGyver_dead.png')
 WIN = "You win! You can escape!"
-LOOSE = "You loose! You can't escape!"
+LOOSE = "You can't escape! The guard kill you!"
 
 
 "==ITEMS=="

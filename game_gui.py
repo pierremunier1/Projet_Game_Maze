@@ -13,6 +13,8 @@ class Game:
  
         def __init__(self):
 
+            """initializing all class instances from another python files"""    
+
             self.labyrinthe = Labyrinthe()
             self.labyrinthe.build('laby.txt')
             self.hero = Hero(self.labyrinthe)
@@ -21,23 +23,23 @@ class Game:
             
 
         def choice(self):
-                        
-                
-                keys = pygame.key.get_pressed()
-
-                for event in pygame.event.get():
-                        if event.type == pygame.QUIT or keys[pygame.K_ESCAPE]:
-                                pygame.quit()   
-                        elif event.type == pygame.KEYDOWN:
-                                if event.key == pygame.K_RIGHT:
-                                        self.hero.move("right")
-                                elif event.key == pygame.K_LEFT:
-                                        self.hero.move("left")
-                                elif event.key == pygame.K_DOWN:
-                                        self.hero.move("down")
-                                elif event.key == pygame.K_UP:
-                                        self.hero.move("up")
-                                self.display_gui.update_display()
+        
+            """user ability to choice direction into the maze with directionnaly key"""
+        
+            keys = pygame.key.get_pressed()
+            for event in pygame.event.get():
+                    if event.type == pygame.QUIT or keys[pygame.K_ESCAPE]:
+                            pygame.quit()   
+                    elif event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_RIGHT:
+                                    self.hero.move("right")
+                            elif event.key == pygame.K_LEFT:
+                                    self.hero.move("left")
+                            elif event.key == pygame.K_DOWN:
+                                    self.hero.move("down")
+                            elif event.key == pygame.K_UP:
+                                    self.hero.move("up")
+                                    self.display_gui.update_display()
                        
         
 def main():

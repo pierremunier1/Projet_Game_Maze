@@ -1,6 +1,9 @@
 
 class Position:
 
+    """Class which manages the elements' position in the labyrinth"""
+
+
     def __init__(self,x ,y):
 
         self.x = x 
@@ -23,9 +26,11 @@ class Position:
         return Position(self.x +1, self.y)
 
     def __str_(self):
+
         return str((self.x, self.y))
     
     def __repr__(self):
+
         return "Position(x={},y={})".format(self.x,self.y)
         
     def __eq__(self,other):

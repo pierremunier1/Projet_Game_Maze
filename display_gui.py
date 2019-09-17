@@ -10,21 +10,30 @@ class Display:
     
     def init_display(self):
         
+        """initializing pygame variables"""
+        
+        "==WINDOW=="
+
         pygame.init()
         pygame.font.init()
         pygame.display.set_caption(constants.WINDOW_TITLE)
-        
-        pygame.mixer.music.load(constants.INTRO)
-        pygame.mixer.music.play()
         icon = pygame.image.load(constants.MCGYVER)
         pygame.display.set_icon(icon)
-
         self.window = pygame.display.set_mode((constants.HEIGHT, constants.WIDTH)) 
-        self.black_bg = pygame.Surface((constants.WIDTH,constants.HEIGHT))
+        self.black_bg = pygame.Surface((constants.HEIGHT, constants.WIDTH))
         self.black_bg.fill((constants.BG_COLOR))
         self.background = pygame.image.load(constants.BACKGROUND)
         self.wall = pygame.image.load(constants.WALL)
+
+        "==SOUND=="
+
+        pygame.mixer.music.load(constants.INTRO)
+        pygame.mixer.music.play()
+    
+        "==CHARACTER & ITEMS=="
+        
         self.mcgyver = pygame.image.load(constants.MCGYVER).convert_alpha()
+        self.mcgyver_dead = pygame.image.load(constants.MCGYVER_DEAD).convert_alpha()
         self.guardian = pygame.image.load(constants.GUARDIAN).convert_alpha()
         self.end = pygame.image.load(constants.END).convert_alpha()
         self.ether = pygame.image.load(constants.ETHER).convert_alpha()
@@ -33,19 +42,21 @@ class Display:
         
 
     def update_display(self):
+
+        """Method refresh display"""
         
-       
         self.window.blit(self.black_bg,(constants.BG_COLOR_POSITION))
         self.window.blit(self.background,(constants.BG_POSITION))
         
         
     def show_display(self):
         
+        """Method showing the maze at the screen and all character and items"""
 
         for y in range(self.labyrinthe.height):
             for x in range(self.labyrinthe.width):
                 position = Position(x, y)
-                if position in self.labyrinthe.mur:
+                if position in self.labyrinthe.wall:
                     self.window.blit(self.wall,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
                 elif position == self.labyrinthe.hero:
                     self.window.blit(self.mcgyver,(x*constants.SPRITE_SIZE,y*constants.SPRITE_SIZE))
@@ -64,11 +75,12 @@ class Display:
 
     def catch_items_gui(self):
 
-       
-        myfont = pygame.font.SysFont(constants.FONT_POLICE, constants.FONT_SIZE)
+        """Method that allows MacGyver to take the objects in the maze"""
+        
+        font = pygame.font.SysFont(constants.FONT_POLICE, constants.FONT_SIZE , bold=1)
         self.result = len(self.labyrinthe.inventory)
-        self.textsurface = myfont.render(("Items:  %s" % self.result), True, (constants.FONT_COLOR)) #a refaire
-        self.window.blit(self.textsurface,(constants.FONT_POSITION))
+        self.text = font.render("items: " + str(self.result), 1, (constants.FONT_COLOR)) 
+        self.window.blit(self.text,(constants.FONT_POSITION))
        
         
         if self.labyrinthe.hero in self.labyrinthe.ether:
@@ -89,15 +101,17 @@ class Display:
         elif self.labyrinthe.hero == self.labyrinthe.guardian:
 
             if self.result == constants.RESULT:
-                self.win = myfont.render((constants.WIN), True, (constants.FONT_COLOR))
+                self.win = font.render((constants.WIN),1,(constants.FONT_COLOR))
                 self.window.blit(self.win,(constants.FONT_RESULT_POSITION))
                 self.win
-                self.labyrinthe.passages.append(self.labyrinthe.end)
+                self.labyrinthe.free.append(self.labyrinthe.end)    
             
-                
             else:
-                self.loose = myfont.render((constants.LOOSE), True, (constants.FONT_COLOR))
+                self.loose = font.render((constants.LOOSE),1,(constants.FONT_COLOR))
+                self.mcgyver = self.mcgyver_dead
                 self.window.blit(self.loose,(constants.FONT_RESULT_POSITION))
                 self.loose
-               
+                self.labyrinthe.wall.pop()
+                
+             
               

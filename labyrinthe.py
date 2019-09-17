@@ -5,8 +5,11 @@ import constants
 
 class Labyrinthe:
 
+    """Class for building and showing the maze"""
+
     def __init__(self):
 
+        """initializing list and position of the maze"""
        
         self.start = None
         self.end = None
@@ -14,8 +17,8 @@ class Labyrinthe:
         self.width = None
         self.height = None
         self.guardian = None
-        self.passages = []
-        self.mur = []
+        self.free = []
+        self.wall = []
         self.ether = []
         self.tube = []
         self.needle = []
@@ -25,26 +28,28 @@ class Labyrinthe:
         
     def build(self,filename):
         
+        """Method building the maze when reading the text file 'laby.txt' and append all
+           character into list or position"""
 
         with open(filename) as laby:
             for n_line, line in enumerate(laby):
                 for n_column, c in enumerate(line):
                     position = Position(n_column, n_line)
                     if c == "S":
-                        self.passages.append(position)
+                        self.free.append(position)
                         self.start = position
                     elif c == "E":
                         self.end = position
                     elif c == "P":
-                        self.passages.append(position)
+                        self.free.append(position)
                         self.hero = position                       
                     elif c == ".":
-                        self.passages.append(position)
+                        self.free.append(position)
                     elif c == "#":
-                        self.mur.append(position)
+                        self.wall.append(position)
                     elif c == "G":
                         self.guardian = position
-                        self.passages.append(position) 
+                        self.free.append(position) 
          
             self.width = n_column + 1
             self.height = n_line + 1
@@ -53,6 +58,7 @@ class Labyrinthe:
 
     def show(self):
         
+        """Method display the maze in the terminal console with 'print' function"""
     
         for y in range(self.height):
             for x in range(self.width):
@@ -71,9 +77,9 @@ class Labyrinthe:
                     print("G",end='')
                 elif position == self.end:
                     print("E",end='')
-                elif position in self.passages:
+                elif position in self.free:
                     print(".",end='')
-                elif position in self.mur:
+                elif position in self.wall:
                     print("#",end='')
 
             print()
