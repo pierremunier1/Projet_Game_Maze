@@ -16,7 +16,7 @@ class Game:
             """initializing all class instances from another python files"""    
 
             self.labyrinth = Maze()
-            self.labyrinth.build('laby.txt')
+            self.labyrinth.build('maze.txt')
             self.hero = Hero(self.labyrinth)
             self.items = Items(self.labyrinth)
             self.display_gui = Display(self.labyrinth)
