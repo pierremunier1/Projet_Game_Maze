@@ -112,6 +112,4 @@ class Display:
                 self.window.blit(self.loose,(constants.FONT_RESULT_POSITION))
                 self.loose
                 self.labyrinth.wall.pop()
-                
-             
               
