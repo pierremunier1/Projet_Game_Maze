@@ -27,8 +27,8 @@ class Display:
 
         "==SOUND=="
 
-        pygame.mixer.music.load(constants.INTRO)
-        pygame.mixer.music.play()
+        #pygame.mixer.music.load(constants.INTRO)
+        #pygame.mixer.music.play()
     
         "==CHARACTER & ITEMS=="
         
