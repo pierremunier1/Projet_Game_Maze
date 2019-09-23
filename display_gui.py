@@ -121,6 +121,7 @@ class Display:
                 self.window.blit(self.win, (constants.FONT_RESULT_POSITION))
                 self.win
                 self.labyrinth.free.append(self.labyrinth.end)
+                
 
             else:
                 self.loose = font.render(
