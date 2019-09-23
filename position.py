@@ -4,7 +4,7 @@
 
 class Position:
 
-    """Class which manages the elements' position in the labyrinth"""
+    """class which manages the elements' position in the labyrinth"""
 
     def __init__(self, x, y):
 

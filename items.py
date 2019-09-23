@@ -7,7 +7,7 @@ import constants
 
 class Items:
 
-    """Class of the Items"""
+    """class of the items"""
 
     def __init__(self, labyrinth):
 
@@ -15,13 +15,11 @@ class Items:
         self.labyrinth.items = self.random()
 
     def random(self):
-
         # Method check random position items into the maze
 
         return sample(self.labyrinth.free, constants.RANDOMS_ITEMS)
 
     def add_random_position(self):
-
         # Method add ramdom position for every items
 
         self.labyrinth.ether.append(self.labyrinth.items[0])

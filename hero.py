@@ -6,7 +6,7 @@ import pygame
 
 class Hero:
 
-    """Class of the MacGyver"""
+    """class of the MacGyver"""
 
     def __init__(self, labyrinth):
 
@@ -23,7 +23,7 @@ class Hero:
             print ('***invalid position***')
 
     def catch_items(self):
-        """Permit at MGGyver to take every items into the maze"""
+        # Permit at MGGyver to take every items into the maze
 
         if self.labyrinth.hero in self.labyrinth.ether:
             self.labyrinth.inventory.append(self.labyrinth.ether)

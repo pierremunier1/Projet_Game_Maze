@@ -7,7 +7,7 @@ import constants
 
 class Maze:
 
-    """Class for building and showing the maze"""
+    """class for building and showing the maze"""
 
     def __init__(self):
         # initializing list and position of the maze"""

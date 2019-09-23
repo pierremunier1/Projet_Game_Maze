@@ -7,6 +7,8 @@ from position import Position
 
 class Display:
 
+    """class contains all elements of gui"""
+
     def __init__(self, labyrinth):
 
         self.labyrinth = labyrinth
@@ -26,8 +28,6 @@ class Display:
         self.background = pygame.image.load(constants.BACKGROUND)
         self.wall = pygame.image.load(constants.WALL)
         self.mcgyver = pygame.image.load(constants.MCGYVER).convert_alpha()
-        self.mcgyver_dead = pygame.image.load(
-            constants.MCGYVER_DEAD).convert_alpha()
         self.guardian = pygame.image.load(constants.GUARDIAN).convert_alpha()
         self.end = pygame.image.load(constants.END).convert_alpha()
         self.ether = pygame.image.load(constants.ETHER).convert_alpha()
@@ -35,7 +35,7 @@ class Display:
         self.needle = pygame.image.load(constants.NEEDLE).convert_alpha()
 
     def update_display(self):
-        # Method refresh display"""
+        # Method refresh display
 
         self.window.blit(self.black_bg, (constants.BG_COLOR_POSITION))
         self.window.blit(self.background, (constants.BG_POSITION))
@@ -121,7 +121,6 @@ class Display:
             else:
                 self.loose = font.render(
                     (constants.LOOSE), 1, (constants.FONT_COLOR))
-                self.mcgyver = self.mcgyver_dead
                 self.window.blit(self.loose, (constants.FONT_RESULT_POSITION))
                 self.loose
                 self.labyrinth.wall.pop()

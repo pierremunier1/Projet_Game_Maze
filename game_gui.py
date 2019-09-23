@@ -12,8 +12,10 @@ import pygame
 
 class Game:
 
+    """class contains the elements necessary to launch the game"""
+
     def __init__(self):
-        """initializing all class instances from another python files"""
+        # initializing all class instances from another python files
 
         self.labyrinth = Maze()
         self.labyrinth.build('maze.txt')
@@ -22,7 +24,7 @@ class Game:
         self.display_gui = Display(self.labyrinth)
 
     def choice(self):
-        """choice direction into the maze with directionnaly key"""
+        # choice direction into the maze with directionnaly key
 
         keys = pygame.key.get_pressed()
         for event in pygame.event.get():
@@ -46,7 +48,7 @@ def main():
     game.items.add_random_position()
     game.display_gui.init_display()
 
-    while 1 < 5:
+    while True:
 
         game.choice()
         game.display_gui.update_display()
