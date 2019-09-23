@@ -6,7 +6,7 @@ Le but du jeu est de faire sortir 'MacGyver' grâce au items disposés de façon
 dans le labyrinthe lui permettant d'endormir le garde et ainsi sortir.
 Si il ne dispose pas de tout les items lorsqu'il se présente au garde, il meurt et le jeu s'arrete.
 
-+Contraintes+
++Specificités+
 
 - Versionner le code sur Github.
 - Le code devra respecter la PEP8.
