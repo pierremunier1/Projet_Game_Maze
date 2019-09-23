@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from labyrinth import Maze
 from position import Position
 from random import sample
