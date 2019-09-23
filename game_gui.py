@@ -8,6 +8,7 @@ from items import Items
 from display_gui import Display
 import constants
 import pygame
+import sys
 
 
 class Game:
@@ -28,9 +29,8 @@ class Game:
 
         keys = pygame.key.get_pressed()
         for event in pygame.event.get():
-            if event.type == pygame.QUIT or keys[pygame.K_ESCAPE]:
-                pygame.quit()
-            elif event.type == pygame.KEYDOWN:
+
+            if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RIGHT:
                     self.hero.move('right')
                 elif event.key == pygame.K_LEFT:
@@ -40,6 +40,10 @@ class Game:
                 elif event.key == pygame.K_UP:
                     self.hero.move('up')
                     self.display_gui.update_display()
+            # method to quit the game
+            if event.type == pygame.QUIT or keys[pygame.K_ESCAPE]:
+                pygame.quit()
+                sys.exit()
 
 
 def main():

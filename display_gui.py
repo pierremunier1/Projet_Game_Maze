@@ -3,6 +3,7 @@
 import pygame
 import constants
 from position import Position
+import sys
 
 
 class Display:
@@ -35,7 +36,7 @@ class Display:
         self.needle = pygame.image.load(constants.NEEDLE).convert_alpha()
 
     def update_display(self):
-        # Method refresh display
+        # Method refresh display for the maze and inventory
 
         self.window.blit(self.black_bg, (constants.BG_COLOR_POSITION))
         self.window.blit(self.background, (constants.BG_POSITION))
@@ -85,6 +86,7 @@ class Display:
     def catch_items_gui(self):
         # Method that allows MacGyver to take the objects in the maze
 
+        # show result of the inventory on the screen
         font = pygame.font.SysFont(
             constants.FONT_POLICE,
             constants.FONT_SIZE,
@@ -93,6 +95,8 @@ class Display:
         self.text = font.render("items: " +
                                 str(self.result), 1, (constants.FONT_COLOR))
         self.window.blit(self.text, (constants.FONT_POSITION))
+
+        # method to take an objet and place it into the inventory
 
         if self.labyrinth.hero in self.labyrinth.ether:
             self.labyrinth.inventory.append(self.labyrinth.ether)
@@ -123,4 +127,4 @@ class Display:
                     (constants.LOOSE), 1, (constants.FONT_COLOR))
                 self.window.blit(self.loose, (constants.FONT_RESULT_POSITION))
                 self.loose
-                self.labyrinth.wall.pop()
+                sys.exit()

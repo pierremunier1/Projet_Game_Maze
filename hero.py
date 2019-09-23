@@ -20,7 +20,7 @@ class Hero:
         if new_position in self.labyrinth.free:
             self.labyrinth.hero = new_position
         else:
-            print ('***invalid position***')
+            pass
 
     def catch_items(self):
         # Permit at MGGyver to take every items into the maze
@@ -38,6 +38,7 @@ class Hero:
             self.labyrinth.needle = []
 
     def result_inventory(self):
+        # method to check the inventory
 
         result = len(self.labyrinth.inventory)
 
