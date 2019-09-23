@@ -12,7 +12,6 @@ class Display:
         
         """initializing pygame variables"""
         
-        "==WINDOW=="
 
         pygame.init()
         pygame.font.init()
@@ -24,14 +23,6 @@ class Display:
         self.black_bg.fill((constants.BG_COLOR))
         self.background = pygame.image.load(constants.BACKGROUND)
         self.wall = pygame.image.load(constants.WALL)
-
-        "==SOUND=="
-
-        #pygame.mixer.music.load(constants.INTRO)
-        #pygame.mixer.music.play()
-    
-        "==CHARACTER & ITEMS=="
-        
         self.mcgyver = pygame.image.load(constants.MCGYVER).convert_alpha()
         self.mcgyver_dead = pygame.image.load(constants.MCGYVER_DEAD).convert_alpha()
         self.guardian = pygame.image.load(constants.GUARDIAN).convert_alpha()
@@ -77,7 +68,7 @@ class Display:
 
         """Method that allows MacGyver to take the objects in the maze"""
         
-        font = pygame.font.SysFont(constants.FONT_POLICE, constants.FONT_SIZE , bold=1)
+        font = pygame.font.SysFont(constants.FONT_POLICE, constants.FONT_SIZE, constants.FONT_BOLD)
         self.result = len(self.labyrinth.inventory)
         self.text = font.render("items: " + str(self.result), 1, (constants.FONT_COLOR)) 
         self.window.blit(self.text,(constants.FONT_POSITION))

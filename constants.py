@@ -1,11 +1,11 @@
 from pathlib import Path
 import pygame
 
-"==PATHS_INIT=="
+#==PATHS_INIT=="
 
 BASE_DIR = Path(__file__).resolve().parent
 
-"==PLAYER=="
+#"==PLAYER=="
 
 MCGYVER = str(BASE_DIR/'pictures'/'MacGyver.png')
 MCGYVER_DEAD = str(BASE_DIR/'pictures'/'MacGyver_dead.png')
@@ -13,7 +13,7 @@ WIN = "You win! You can escape!"
 LOOSE = "You can't escape! The guard kill you!"
 
 
-"==ITEMS=="
+#==ITEMS=="
 
 RANDOMS_ITEMS = K=3
 RESULT = 3
@@ -24,7 +24,7 @@ ETHER = str(BASE_DIR/'pictures'/'ether.png')
 TUBE = str(BASE_DIR/'pictures'/'tube.png')
 POSITION_ITEMS = [(0,450),(30,450),(60,450)]
 
-"==WINDOW=="
+#"==WINDOW=="
 
 HEIGHT = 420
 WIDTH = 480
@@ -36,14 +36,15 @@ WALL = str(BASE_DIR/'pictures'/'mur_1.png')
 BACKGROUND = str(BASE_DIR/'pictures'/'back_1.png')
 SPRITE_SIZE = 30
 
-"==SOUND=="
+#"==SOUND=="
 
 INTRO = str(BASE_DIR/'sound'/'macgyver.mid')
 
-"==FONTS=="
+#"==FONTS=="
 
 FONT_RESULT_POSITION = (180,455)
 FONT_POSITION = (110,455)
 FONT_COLOR = (255,255,255)
 FONT_SIZE = 16
 FONT_POLICE = "arial"
+FONT_BOLD = bold=1
