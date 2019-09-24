@@ -13,7 +13,7 @@ Si il ne dispose pas de tout les items lorsqu'il se présente au garde, il meurt
 - Le code ainsi que les variables seront en anglais.
 - Le programme doit être fonctionnel en mode console.
 - Les items devront être disposés de façon aléatoire dans les passages du labyrinthe.
-- MacGyver sera en mesure de rammasser et stocker les items dans un inventaire.
+- MacGyver sera en mesure de ramasser et stocker les items dans un inventaire.
 - Gérer le déplacement du personnage.
 - Appliquer une interface graphique avec le module Pygame.
 
