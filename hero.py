@@ -19,8 +19,7 @@ class Hero:
         new_position = getattr(self.labyrinth.hero, direction)()
         if new_position in self.labyrinth.free:
             self.labyrinth.hero = new_position
-        else:
-            pass
+        
 
     def catch_items(self):
         # Permit at MGGyver to take every items into the maze
