@@ -6,7 +6,7 @@ Le but du jeu est de faire sortir 'MacGyver' grâce au items disposés de façon
 dans le labyrinthe lui permettant d'endormir le garde et ainsi sortir.
 Si il ne dispose pas de tout les items lorsqu'il se présente au garde, il meurt et le jeu s'arrete.
 
-+Specificités+
+## specificités
 
 - Versionner le code sur Github.
 - Le code devra respecter la PEP8.
@@ -16,3 +16,7 @@ Si il ne dispose pas de tout les items lorsqu'il se présente au garde, il meurt
 - MacGyver sera en mesure de rammasser et stocker les items dans un inventaire.
 - Gérer le déplacement du personnage.
 - Appliquer une interface graphique avec le module Pygame.
+
+### installation 
+
+- pipenv shell 
