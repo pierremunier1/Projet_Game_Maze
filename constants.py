@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from pathlib import Path
-import pygame
+
 
 # ==PATHS_INIT=="
 
