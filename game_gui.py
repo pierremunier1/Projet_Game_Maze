@@ -1,5 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
+"""Game class of McGyver maze"""
+
 from labyrinth import Maze
 from position import Position
 from random import sample
@@ -13,10 +16,10 @@ import sys
 
 class Game:
 
-    """class contains the elements necessary to launch the game"""
+    """class contains the methods necessary to launch the McGyver maze"""
 
     def __init__(self):
-        # initializing all class instances from another python files
+        """initializing all class of the game"""
 
         self.labyrinth = Maze()
         self.labyrinth.build('maze.txt')
@@ -25,7 +28,7 @@ class Game:
         self.display_gui = Display(self.labyrinth)
 
     def choice(self):
-        # choice direction into the maze with directionnaly key
+        """choice direction into the maze with keyboard key"""
 
         keys = pygame.key.get_pressed()
         for event in pygame.event.get():
@@ -40,7 +43,7 @@ class Game:
                 elif event.key == pygame.K_UP:
                     self.hero.move('up')
                     self.display_gui.update_display()
-            # method to quit the game
+
             if event.type == pygame.QUIT or keys[pygame.K_ESCAPE]:
                 pygame.quit()
                 sys.exit()

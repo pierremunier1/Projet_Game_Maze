@@ -1,5 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
+"""Game setting of McGyver maze"""
+
 from pathlib import Path
 
 

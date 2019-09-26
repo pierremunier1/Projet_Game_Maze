@@ -1,28 +1,31 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
+"""Hero class of the McGyver maze"""
+
 from position import Position
 import pygame
 
 
 class Hero:
 
-    """class of the MacGyver"""
+    """class contains all methods for the macgyver interaction"""
 
     def __init__(self, labyrinth):
+        """initializing labyrinth instance"""
 
         self.labyrinth = labyrinth
         self.labyrinth.inventory = []
 
     def move(self, direction):
-        # Check if the new position is on free space
+        """check if the new position is on free space"""
 
         new_position = getattr(self.labyrinth.hero, direction)()
         if new_position in self.labyrinth.free:
             self.labyrinth.hero = new_position
-        
 
     def catch_items(self):
-        # Permit at MGGyver to take every items into the maze
+        """permit at MGGyver to take every items into the maze(console mode)"""
 
         if self.labyrinth.hero in self.labyrinth.ether:
             self.labyrinth.inventory.append(self.labyrinth.ether)
@@ -37,7 +40,7 @@ class Hero:
             self.labyrinth.needle = []
 
     def result_inventory(self):
-        # method to check the inventory
+        """method to check the inventory(console mode)"""
 
         result = len(self.labyrinth.inventory)
 

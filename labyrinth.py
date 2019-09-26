@@ -1,5 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
+"""Labyrinth class of McGyver maze"""
+
 from position import Position
 from items import Items
 import constants
@@ -10,7 +13,7 @@ class Maze:
     """class for building and showing the maze"""
 
     def __init__(self):
-        # initializing list and position of the maze"""
+        """initializing list and position of the maze"""
 
         self.start = None
         self.end = None
@@ -27,7 +30,7 @@ class Maze:
         self.inventory = []
 
     def build(self, filename):
-        # Method building the maze when reading the text file
+        """Method building the maze when reading the text file"""
 
         with open(filename) as laby:
             for n_line, line in enumerate(laby):
@@ -55,7 +58,7 @@ class Maze:
         print()
 
     def show(self):
-        # Method display the maze in the console mode with 'print' function
+        """Method display the maze in the console mode with 'print' function"""
 
         for y in range(self.height):
             for x in range(self.width):

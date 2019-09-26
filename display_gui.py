@@ -1,5 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
+"""Display class of McGyver Maze"""
+
 import pygame
 import constants
 from position import Position
@@ -8,14 +11,18 @@ import sys
 
 class Display:
 
-    """class contains all elements of gui"""
+    """class contains
+    method for show the maze on the screen
+    method for catch the items in the maze
+    """
 
     def __init__(self, labyrinth):
+        """initializing labyrinth instance"""
 
         self.labyrinth = labyrinth
 
     def init_display(self):
-        # initializing pygame variables
+        """initializing pygame variables"""
 
         pygame.init()
         pygame.font.init()
@@ -36,13 +43,13 @@ class Display:
         self.needle = pygame.image.load(constants.NEEDLE).convert_alpha()
 
     def update_display(self):
-        # Method refresh display for the maze and inventory
+        """Method refresh display for the maze and inventory"""
 
         self.window.blit(self.black_bg, (constants.BG_COLOR_POSITION))
         self.window.blit(self.background, (constants.BG_POSITION))
 
     def show_display(self):
-        # Method showing the maze at the screen and all character and items
+        """Method showing the maze at the screen and all character and items"""
 
         for y in range(self.labyrinth.height):
             for x in range(self.labyrinth.width):
@@ -84,9 +91,11 @@ class Display:
                          y * constants.SPR_SIZE))
 
     def catch_items_gui(self):
-        # Method that allows MacGyver to take the objects in the maze
+        """Method that allows MacGyver to take the objects in the maze
+        and check the inventory when the position of McGyver is on
+        Guardian position.
+        """
 
-        # show result of the inventory on the screen
         font = pygame.font.SysFont(
             constants.FONT_POLICE,
             constants.FONT_SIZE,
@@ -95,8 +104,6 @@ class Display:
         self.text = font.render("items: " +
                                 str(self.result), 1, (constants.FONT_COLOR))
         self.window.blit(self.text, (constants.FONT_POSITION))
-
-        # method to take an objet and place it into the inventory
 
         if self.labyrinth.hero in self.labyrinth.ether:
             self.labyrinth.inventory.append(self.labyrinth.ether)
@@ -121,7 +128,6 @@ class Display:
                 self.window.blit(self.win, (constants.FONT_RESULT_POSITION))
                 self.win
                 self.labyrinth.free.append(self.labyrinth.end)
-                
 
             else:
                 self.loose = font.render(
