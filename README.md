@@ -20,3 +20,4 @@ Si il ne dispose pas de tout les items lorsqu'il se présente au garde, il meurt
 ### installation 
 
 - pipenv shell 
+- execute game_guy.py
