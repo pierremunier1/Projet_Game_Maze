@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from position import Position
 from random import sample
-import constants
+import constants_c
 
 
 class Items:
@@ -17,7 +17,7 @@ class Items:
     def random(self):
         # Method check random position items into the maze
 
-        return sample(self.labyrinth.free, constants.RANDOMS_ITEMS)
+        return sample(self.labyrinth.free, constants_c.RANDOMS_ITEMS)
 
     def add_random_position(self):
         # Method add ramdom position for every items"""

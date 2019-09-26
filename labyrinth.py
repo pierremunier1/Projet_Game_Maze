@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from position import Position
 from items import Items
-import constants
+import constants_c
 
 
 class Maze:
